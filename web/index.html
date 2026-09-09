@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeInsight AI — Live AI Project Analyzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #090d16 100%);
+      --glass-bg: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-hover: rgba(255, 255, 255, 0.08);
+      --accent-blue: #38bdf8;
+      --accent-purple: #c084fc;
+      --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --card-bg: rgba(15, 23, 42, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem auto;
+      width: 100%;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .dropzone-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 2px dashed var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dropzone-card:hover, .dropzone-card.dragover {
+      border-color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -15px rgba(56, 189, 248, 0.2);
+    }
+
+    .upload-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.4));
+    }
+
+    .dropzone-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .dropzone-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    .btn-select {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 12px;
+      background: var(--accent-gradient);
+      color: #0f172a;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-select:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+    }
+
+    .status-panel {
+      display: none;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--accent-gradient);
+      transition: width 0.4s ease;
+    }
+
+    .status-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+    }
+
+    .report-container {
+      display: none;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+
+    .report-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .actions-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-action {
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    .markdown-content {
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+
+    .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+      color: #f8fafc;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .markdown-content h2 {
+      border-bottom: 1px solid var(--glass-border);
+      padding-bottom: 0.4rem;
+    }
+
+    .markdown-content code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: var(--accent-blue);
+      font-size: 0.9em;
+    }
+
+    .markdown-content pre {
+      background: #020617;
+      padding: 1.25rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      border: 1px solid var(--glass-border);
+    }
+
+    .markdown-content ul, .markdown-content ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .markdown-content hr {
+      border: none;
+      border-top: 1px solid var(--glass-border);
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">🚀 Live AI Project Analyzer</div>
+    <h1>CodeInsight AI</h1>
+    <p class="subtitle">Upload your project ZIP archive to generate a comprehensive 24-section technical report covering Tech Stack, AI/LLM models, RAG, Secrets, Security, Architecture, and README generation.</p>
+  </header>
+
+  <main>
+    <!-- Dropzone -->
+    <div class="dropzone-card" id="dropzone">
+      <div class="upload-icon">📦</div>
+      <div class="dropzone-title">Drag & Drop Project ZIP Archive</div>
+      <div class="dropzone-desc">Supports .zip files up to 500 MB. Instant automated analysis.</div>
+      <button class="btn-select" onclick="document.getElementById('fileInput').click()">Select ZIP File</button>
+      <input type="file" id="fileInput" accept=".zip">
+    </div>
+
+    <!-- Status / Loader -->
+    <div class="status-panel" id="statusPanel">
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="status-text" id="statusText">Uploading archive...</div>
+    </div>
+
+    <!-- Report Render Area -->
+    <div class="report-container" id="reportContainer">
+      <div class="report-header">
+        <div>
+          <h2 id="reportTitle" style="margin:0;">Analysis Report</h2>
+          <p id="reportMeta" style="color:var(--text-muted); font-size:0.9rem; margin-top:0.25rem;"></p>
+        </div>
+        <div class="actions-group">
+          <a id="btnDownloadPdf" class="btn-action" href="#" download>📄 Download PDF Report</a>
+          <a id="btnDownloadMd" class="btn-action" href="#" download>📝 Download Markdown</a>
+        </div>
+      </div>
+      <div class="markdown-content" id="markdownOutput"></div>
+    </div>
+  </main>
+
+  <script>
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+    const statusPanel = document.getElementById('statusPanel');
+    const progressBar = document.getElementById('progressBar');
+    const statusText = document.getElementById('statusText');
+    const reportContainer = document.getElementById('reportContainer');
+    const markdownOutput = document.getElementById('markdownOutput');
+
+    dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('dragover'); });
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+      if (e.dataTransfer.files.length) processFile(e.dataTransfer.files[0]);
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) processFile(e.target.files[0]);
+    });
+
+    async function processFile(file) {
+      if (!file.name.toLowerCase().endswith?.('.zip') && !file.name.toLowerCase().endsWith('.zip')) {
+        alert('Please upload a valid .zip file');
+        return;
+      }
+
+      statusPanel.style.display = 'block';
+      reportContainer.style.display = 'none';
+      progressBar.style.width = '20%';
+      statusText.innerText = '📥 Uploading and extracting ZIP file...';
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      setTimeout(() => { progressBar.style.width = '50%'; statusText.innerText = '🔍 Scanning code AST, dependencies & security rules...'; }, 800);
+      setTimeout(() => { progressBar.style.width = '80%'; statusText.innerText = '🤖 Executing 24-section AI deep analysis engine...'; }, 1800);
+
+      try {
+        const response = await fetch('/api/analyze', { method: 'POST', body: formData });
+        const data = await response.json();
+
+        if (!response.ok) throw new Error(data.detail || 'Analysis failed');
+
+        progressBar.style.width = '100%';
+        statusText.innerText = '✅ Analysis complete! Rendering report...';
+
+        setTimeout(() => {
+          statusPanel.style.display = 'none';
+          reportContainer.style.display = 'block';
+
+          document.getElementById('reportTitle').innerText = `Report: ${data.project_name}`;
+          document.getElementById('reportMeta').innerText = `Language: ${data.primary_language} | Files: ${data.total_files} | Lines: ~${data.total_lines}`;
+          document.getElementById('btnDownloadPdf').href = data.pdf_download_url;
+          document.getElementById('btnDownloadMd').href = data.md_download_url;
+
+          markdownOutput.innerHTML = marked.parse(data.markdown_report);
+        }, 500);
+
+      } catch (err) {
+        statusPanel.style.display = 'block';
+        progressBar.style.width = '100%';
+        progressBar.style.background = '#ef4444';
+        statusText.innerText = `❌ Error: ${err.message}`;
+      }
+    }
+  </script>
+</body>
+</html>

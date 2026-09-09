@@ -1,0 +1,85 @@
+S.No,Product_Name,Product_ID,Price,Quantity,Category,Brand,Description,Rating(out_of_10),image
+1,DELL Laptop,P0001,34101,22,Laptops,DELL,High performance laptop with latest specs,9,data/images/laptop1.jpeg
+2,HP Laptop,P0002,96736,164,Laptops,HP,High performance laptop with latest specs,9,data/images/laptop2.jpeg
+3,HP Laptop,P0003,71978,43,Laptops,HP,High performance laptop with latest specs,10,data/images/laptop3.jpeg
+4,LENOVO Laptop,P0004,68350,123,Laptops,LENOVO,High performance laptop with latest specs,5,data/images/laptop4.jpeg
+5,LENOVO Laptop,P0005,76889,108,Laptops,LENOVO,High performance laptop with latest specs,6,data/images/laptop5.jpg
+6,HP Laptop,P0006,36844,91,Laptops,HP,High performance laptop with latest specs,9,data/images/laptop1.jpeg
+7,DELL Laptop,P0007,35812,147,Laptops,DELL,High performance laptop with latest specs,5,data/images/laptop2.jpeg
+8,DELL Laptop,P0008,36250,88,Laptops,DELL,High performance laptop with latest specs,9,data/images/laptop3.jpeg
+9,DELL Laptop,P0009,54763,79,Laptops,DELL,High performance laptop with latest specs,9,data/images/laptop4.jpeg
+10,DELL Laptop,P0010,65295,182,Laptops,DELL,High performance laptop with latest specs,5,data/images/laptop5.jpg
+11,Redmi Mobile,P0011,25277,129,Mobiles,Redmi,Latest model smartphone with advanced features,9,data/images/mobile1.jpeg
+12,Realme Mobile,P0012,58851,33,Mobiles,Realme,Latest model smartphone with advanced features,7,data/images/mobile2.jpeg
+13,Vivo Mobile,P0013,29104,194,Mobiles,Vivo,Latest model smartphone with advanced features,9,data/images/mobile3.jpeg
+14,Vivo Mobile,P0014,35012,153,Mobiles,Vivo,Latest model smartphone with advanced features,5,data/images/mobile4.jpeg
+15,Redmi Mobile,P0015,59846,87,Mobiles,Redmi,Latest model smartphone with advanced features,6,data/images/mobile5.jpeg
+16,Redmi Mobile,P0016,20249,40,Mobiles,Redmi,Latest model smartphone with advanced features,5,data/images/mobile1.jpeg
+17,Apple IPhone Mobile,P0017,63151,111,Mobiles,Apple,Latest model smartphone with advanced features,10,data/images/mobile2.jpeg
+18,Oppo Mobile,P0018,41964,17,Mobiles,Oppo,Latest model smartphone with advanced features,8,data/images/mobile3.jpeg
+19,Apple Mobile,P0019,46094,134,Mobiles,Apple,Latest model smartphone with advanced features,6,data/images/mobile4.jpeg
+20,Apple Mobile,P0020,18243,49,Mobiles,Apple,Latest model smartphone with advanced features,5,data/images/mobile5.jpeg
+21,Realme Earbud,P0021,5379,25,Earbuds,Realme,Wireless earbuds with great sound quality,6,data/images/earbud1.jpeg
+22,Boat Earbud,P0022,1786,62,Earbuds,Boat,Wireless earbuds with great sound quality,8,data/images/earbud2.jpeg
+23,Samsung Earbud,P0023,1377,125,Earbuds,Samsung,Wireless earbuds with great sound quality,9,data/images/earbud3.jpeg
+24,Boat Earbud,P0024,6867,62,Earbuds,Boat,Wireless earbuds with great sound quality,6,data/images/earbud4.jpg
+25,Realme Earbud,P0025,5882,117,Earbuds,Realme,Wireless earbuds with great sound quality,10,data/images/earbud5.jpg
+26,Samsung Earbud,P0026,1786,53,Earbuds,Samsung,Wireless earbuds with great sound quality,10,data/images/earbud1.jpeg
+27,Samsung Earbud,P0027,2566,113,Earbuds,Samsung,Wireless earbuds with great sound quality,9,data/images/earbud2.jpeg
+28,BrandB Chudithar,P0028,1727,73,Chudithar,BrandB,Traditional chudithar with rich colors,10,data/images/chudidhar1.jpeg
+29,BrandA Chudithar,P0029,2228,164,Chudithar,BrandA,Traditional chudithar with rich colors,6,data/images/chudidhar2.jpeg
+30,BrandB Chudithar,P0030,818,60,Chudithar,BrandB,Traditional chudithar with rich colors,10,data/images/chudidhar3.jpeg
+31,BrandC Chudithar,P0031,2003,63,Chudithar,BrandC,Traditional chudithar with rich colors,9,data/images/chudithar1.jpeg
+32,BrandB Chudithar,P0032,2787,106,Chudithar,BrandB,Traditional chudithar with rich colors,7,data/images/chudithar2.jpeg
+33,BrandZ T shirt,P0033,1724,59,T shirt,BrandZ,Comfortable casual t-shirt,5,data/images/tshirt1.jpg
+34,BrandX T shirt,P0034,1641,132,T shirt,BrandX,Comfortable casual t-shirt,7,data/images/tshirt2.jpg
+35,BrandZ T shirt,P0035,1447,53,T shirt,BrandZ,Comfortable casual t-shirt,10,data/images/tshirt3.jpg
+36,BrandY T shirt,P0036,1911,16,T shirt,BrandY,Comfortable casual t-shirt,7,data/images/tshirt4.jpg
+37,BrandX T shirt,P0037,961,99,T shirt,BrandX,Comfortable casual t-shirt,10,data/images/tshirt5.jpg
+38,BrandZ T shirt,P0038,1611,177,T shirt,BrandZ,Comfortable casual t-shirt,8,data/images/tshirt1.jpg
+39,BrandY T shirt,P0039,798,171,T shirt,BrandY,Comfortable casual t-shirt,8,data/images/tshirt2.jpg
+40,BrandY T shirt,P0040,1636,89,T shirt,BrandY,Comfortable casual t-shirt,4,data/images/tshirt3.jpg
+41,CoolerBrand3 Air cooler,P0041,10413,152,Air coolers,CoolerBrand3,Energy efficient air cooler,7,data/images/cooler1.jpg
+42,CoolerBrand1 Air cooler,P0042,22559,44,Air coolers,CoolerBrand1,Energy efficient air cooler,8,data/images/cooler2.jpg
+43,CoolerBrand2 Air cooler,P0043,20070,123,Air coolers,CoolerBrand2,Energy efficient air cooler,7,data/images/cooler3.jpg
+44,CoolerBrand3 Air cooler,P0044,19107,54,Air coolers,CoolerBrand3,Energy efficient air cooler,10,data/images/cooler4.jpg
+45,CoolerBrand3 Air cooler,P0045,19542,102,Air coolers,CoolerBrand3,Energy efficient air cooler,9,data/images/cooler1.jpg
+46,Whirlpool Washing Machine,P0046,28990,57,Washing Machines,Whirlpool,Fully automatic top-load washing machine,8,data/images/wm1.jpeg
+47,Samsung Washing Machine,P0047,31500,32,Washing Machines,Samsung,Fully automatic front-load washing machine,9,data/images/wm2.jpeg
+48,LG Washing Machine,P0048,28490,44,Washing Machines,LG,Fully automatic top-load washing machine,10,data/images/wm3.jpeg
+49,Godrej Washing Machine,P0049,23990,71,Washing Machines,Godrej,Semi automatic washing machine,7,data/images/wm3.jpeg
+50,IFB Washing Machine,P0050,34100,22,Washing Machines,IFB,Front-load washing machine with inverter technology,9,data/images/wm1.jpeg
+51,Samsung Refrigerator,P0051,38490,66,Refrigerators,Samsung,Double door frost-free refrigerator,9,data/images/fridge1.jpg
+52,LG Refrigerator,P0052,34100,43,Refrigerators,LG,Smart inverter compressor refrigerator,8,data/images/fridge2.jpg
+53,Whirlpool Refrigerator,P0053,26500,36,Refrigerators,Whirlpool,Single door refrigerator with toughened glass shelves,7,data/images/fridge3.jpg
+54,Haier Refrigerator,P0054,30290,29,Refrigerators,Haier,Convertible frost-free refrigerator,9,data/images/fridge4.jpg
+55,Godrej Refrigerator,P0055,22100,41,Refrigerators,Godrej,Energy efficient refrigerator with smart cooling,8,data/images/fridge4.jpg
+56,Sony LED TV,P0056,48990,55,Televisions,Sony,4K Ultra HD Smart LED TV,10,data/images/tv1.jpg
+57,LG LED TV,P0057,43100,39,Televisions,LG,Full HD Smart LED TV,8,data/images/tv2.jpg
+58,Samsung LED TV,P0058,52490,47,Televisions,Samsung,Crystal UHD Smart LED TV,9,data/images/tv3.jpg
+59,OnePlus TV,P0059,37990,28,Televisions,OnePlus,Android Smart TV with bezel-less design,9,data/images/tv4.jpg
+60,Mi LED TV,P0060,28990,51,Televisions,Mi,Smart TV with Google Assistant and PatchWall,8,data/images/tv5.jpg
+61,Sleepwell Mattress,M0061,10999,15,Mattress,Sleepwell,Premium memory foam mattress for restful sleep,9,data/images/mattress1.jpeg
+62,Kurlon Mattress,M0062,7999,20,Mattress,Kurlon,Comfortable spring mattress for back support,8,data/images/mattress2.jpeg
+63,Wakefit Mattress,M0063,9999,25,Mattress,Wakefit,Orthopedic mattress for pain relief,8,data/images/mattress3.jpeg
+64,Godrej Mattress,M0064,8999,10,Mattress,Godrej,Dual comfort reversible mattress,7,data/images/mattress4.jpeg
+66,Apple Watch,P0066,32990,20,Smart Watches,Apple,Series 8 smartwatch with advanced health tracking,10,data/images/watch1.jpg
+67,Boat Smartwatch,P0067,2499,112,Smart Watches,Boat,Smartwatch with fitness and sleep monitoring,8,data/images/watch2.jpg
+68,FireBoltt Smartwatch,P0068,2999,88,Smart Watches,FireBoltt,Smartwatch with AMOLED display,9,data/images/watch3.jpg
+69,Noise Smartwatch,P0069,3199,77,Smart Watches,Noise,Smartwatch with Bluetooth calling,8,data/images/watch4.jpg
+70,Samsung Smartwatch,P0070,19999,39,Smart Watches,Samsung,Galaxy Watch with ECG tracking,9,data/images/watch5.jpg
+71,Prestige Mixer Grinder,P0076,4799,50,Kitchen Appliances,Prestige,Mixer grinder with 3 jars and overload protection,8,data/images/mixer1.jpg
+72,Butterfly Mixer Grinder,P0077,3899,47,Kitchen Appliances,Butterfly,Mixer grinder with stainless steel blades,9,data/images/mixer2.jpg
+73,Philips Mixer Grinder,P0078,5199,42,Kitchen Appliances,Philips,Mixer grinder with 4 jars and auto cut-off protection,9,data/images/mixer3.jpg
+74,Bajaj Mixer Grinder,P0079,3999,61,Kitchen Appliances,Bajaj,Powerful mixer grinder for home use,8,data/images/mixer4.jpg
+75,Sujata Mixer Grinder,P0080,5899,33,Kitchen Appliances,Sujata,Heavy duty mixer grinder for professional use,10,data/images/mixer5.jpg
+76,Amazon Echo,P0086,4999,53,Smart Home,Amazon,Smart speaker with Alexa voice assistant,9,data/images/echo1.jpg
+77,Google Nest Mini,P0087,4499,46,Smart Home,Google,Smart speaker with Google Assistant,9,data/images/echo2.jpg
+78,Mi Smart Plug,P0088,999,72,Smart Home,Mi,Wi-Fi smart plug for appliances,8,data/images/echo3.jpg
+79,Syska Smart Bulb,P0089,699,117,Smart Home,Syska,Smart bulb with adjustable color and brightness,8,data/images/echo4.jpg
+80,Philips Smart Bulb,P0090,999,91,Smart Home,Philips,Wi-Fi enabled smart bulb with voice control,9,data/images/echo5.jpg
+81,JBL Bluetooth Speaker,P0101,4999,20,Speakers,JBL,Compact Bluetooth speaker with deep bass,8,data/images/speaker1.jpeg
+82,Sony Soundbar,P0102,15999,15,Speakers,Sony,High-power soundbar with wireless subwoofer,9,data/images/speaker2.jpeg
+83,Bose Portable Speaker,P0103,24999,10,Speakers,Bose,Portable speaker with 360° sound and Alexa,10,data/images/speaker3.jpeg
+84,Boat Party Speaker,P0104,7999,12,Speakers,Boat,Powerful party speaker with LED lights,9,data/images/speaker1.jpeg
+85,Marshall Home Speaker,P0105,34999,8,Speakers,Marshall,Home speaker with classic design and Bluetooth,10,data/images/speaker2.jpeg
