@@ -11,6 +11,7 @@ from pathlib import Path
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 from core.extractor import ZipExtractor
 from core.scanner import CodeScanner
@@ -20,6 +21,14 @@ from reports.markdown_reporter import MarkdownReporter
 from reports.pdf_reporter import PDFReporter
 
 app = FastAPI(title="CodeInsight AI - Web Dashboard")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 UPLOAD_DIR = Path("data/uploads")
 REPORT_DIR = Path("data/reports")
